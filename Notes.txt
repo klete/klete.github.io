@@ -1,0 +1,40 @@
+Setting up with GitHub
+
+1. Created a repo on github
+
+2. Cloned the repo
+
+  $ git clone https://github.com/kklete/klete.github.io
+
+  Didn't need the trailing ".git".
+
+3. Created the index.html file
+
+  $ echo "Hello World" > index.html
+
+4. Upload to github
+
+  $ git add --all
+  $ git commit -m "Initial commit"
+  $ git push -u origin master
+
+5. Go to the website
+
+  https://klete.github.io
+
+
+Using a Custom URL
+
+The documentation is confusing.
+
+1. Add the custom domain, www.krittger.net, to github via the settings for the klete.github.io repo.
+2. Set the CNAME record in Route53.  www.krittger.net points to klete.github.io.
+3. Back in the github repo settings, remove and re-add the custom domain to trigger the process of enabling https.
+
+The ssl cert was issued within a few minutes.  I could tell because the message next to the https checkbox in the settings updated with the change in status.
+
+4. Select 'Enforce HTTPS"
+
+Going back to www.krittger.net and reloading forced https but also gave a "certificate is invalid" message.  This resolved by itself in a minute or two.
+
+The certificate appears to only be valid for five months.
